@@ -1,24 +1,24 @@
-SVM train score: 0.815409
+SVM train score: 0.797753
 
-SVM test score: 0.791045
+SVM test score: 0.761194
 
-Logistic train score: 0.778491
+Logistic train score: 0.784912
 
 Logistic test score: 0.791045
 
-KNN train score: 0.839486
+KNN train score: 0.784912
 
-KNN test score: 0.772388
+KNN test score: 0.791045
 
-DecisionTree train score: 0.910112
+DecisionTree train score: 0.797753
 
-DecisionTree test score: 0.798507
+DecisionTree test score: 0.761194
 
-Naivebayes train score: 0.746388
+Naivebayes train score: 0.743178
 
-Naivebayes test score: 0.746269
+Naivebayes test score: 0.768657
 
-score_train_train:0.855538
+score_train_train:0.784912
 
-score_train_test:0.802239
+score_train_test:0.791045
 

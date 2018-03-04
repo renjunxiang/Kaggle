@@ -26,6 +26,10 @@ test_data = pd.read_csv('./data/test.csv')
 train_data['Cabin'] = np.where(train_data['Cabin'].isna(), 0, 1)
 test_data['Cabin'] = np.where(test_data['Cabin'].isna(), 0, 1)
 
+# sex转数字,用于后续相关性分析
+train_data['Sex'] = np.where(train_data['Sex']=='male', 0, 1)
+test_data['Sex'] = np.where(test_data['Sex']=='male', 0, 1)
+
 train_data_1 = train_data.iloc[:, :]
 
 for i in train_data_1.columns:
@@ -45,7 +49,7 @@ discrete = pd.concat(discrete, axis=0)
 var_discrete = discrete['PR(>F)'][discrete['PR(>F)'] < 0.05].index
 
 # 判断对存活有影响的连续变量,相关性分析
-continuous = train_data_1.loc[:, ['Pclass', 'Age', 'Parch', 'Fare', 'Cabin', 'Survived']].corr()['Survived']
+continuous = train_data_1.loc[:, ['Pclass','Sex', 'Age', 'Parch', 'Fare', 'Cabin', 'Survived']].corr()['Survived']
 
 # 得到有意义的变量为'Pclass', 'Sex', 'Embarked','Fare'
 train_x = train_data.loc[:, ['Pclass', 'Sex', 'Cabin', 'Embarked', 'Fare']]
