@@ -9,9 +9,7 @@ from statsmodels.formula.api import ols
 train_data = pd.read_csv('./data/train.csv')
 test_data = pd.read_csv('./data/test.csv')
 
-# Cabin变量过多分类和缺失值，按照有无缺失处理成二值变量
-train_data['Cabin'] = np.where(train_data['Cabin'].isna(), 0, 1)
-test_data['Cabin'] = np.where(test_data['Cabin'].isna(), 0, 1)
+# ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Cabin', 'Embarked']
 # PassengerId => 乘客ID（无意义）
 # Pclass => 乘客等级(1/2/3等舱位)  （分类）
 # Name => 乘客姓名  （分类）（无意义）
@@ -24,8 +22,10 @@ test_data['Cabin'] = np.where(test_data['Cabin'].isna(), 0, 1)
 # Cabin => 客舱  （分类）
 # Embarked => 登船港口  （分类）
 
-['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Cabin', 'Embarked']
-# 剔除姓名、船票信息
+# Cabin变量过多分类和缺失值，按照有无缺失处理成二值变量
+train_data['Cabin'] = np.where(train_data['Cabin'].isna(), 0, 1)
+test_data['Cabin'] = np.where(test_data['Cabin'].isna(), 0, 1)
+
 train_data_1 = train_data.iloc[:, :]
 
 for i in train_data_1.columns:
@@ -114,7 +114,7 @@ score_train_test[score_train_test < 3] = 0
 score_train_test[score_train_test >= 3] = 1
 print('score_train_test:%f' % (np.sum(np.array(score_train_test) == train_test_y.iloc[:, 0]) / len(train_test_y)))
 f.write('score_train_test:%f\n\n' % (np.sum(np.array(score_train_test) == train_test_y.iloc[:, 0]) / len(train_test_y)))
-
+f.close()
 # 过半数模型投票1才判定为1
 score = result_all_test.agg(lambda x: sum(list(x)[1:]), axis=1)
 score[score < 3] = 0
