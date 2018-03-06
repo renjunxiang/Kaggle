@@ -4,3 +4,4 @@
 Toxic_Comment_Classification_Challenge/data/train.csv.zip
 Toxic_Comment_Classification_Challenge/data/test.csv.zip
 *.zip
+*.npy
