@@ -1,7 +1,13 @@
 import pandas as pd
 import numpy as np
-from net import *
+from net.LeNet import LeNet
 from sklearn.model_selection import train_test_split
+
+import tensorflow as tf
+from keras.backend.tensorflow_backend import set_session
+config = tf.ConfigProto()
+config.gpu_options.per_process_gpu_memory_fraction = 0.3
+set_session(tf.Session(config=config))
 
 train_data = pd.read_csv('./data/train.csv')  # 42000
 test_data = pd.read_csv('./data/test.csv')
