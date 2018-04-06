@@ -9,8 +9,6 @@ from keras.layers.core import Dense, initializers, Dropout, Masking
 from keras.layers import Conv1D, InputLayer
 from keras.layers.recurrent import LSTM,GRU
 from keras.optimizers import SGD, Adagrad, Adam
-# from net.lstm import lstm
-# from net.cnn1d import cnn1d
 from sklearn.model_selection import train_test_split
 from keras import backend as K
 
