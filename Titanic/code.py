@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from statsmodels.stats.anova import anova_lm
 from statsmodels.formula.api import ols
 
+
 train_data = pd.read_csv('./data/train.csv')
 test_data = pd.read_csv('./data/test.csv')
 

@@ -9,3 +9,4 @@ Toxic_Comment_Classification_Challenge/data/test.csv.zip
 *.model
 *.csv
 Toxic_Comment_Classification_Challenge/net/lstm - 副本.py
+*.hdf5
